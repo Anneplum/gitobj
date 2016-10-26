@@ -1,0 +1,23 @@
+{
+  "name": "gitobj",
+  "description": "\"this is my project\"",
+  "main": "index.js",
+  "authors": [
+    "lcm"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "new"
+  ],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "jquery": "^3.1.1"
+  }
+}
