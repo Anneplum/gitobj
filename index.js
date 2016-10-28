@@ -1,4 +1,6 @@
 var express = require('express');
+var path=require('path');
+var favicon=require('serve-favicon');
 var app  = express();
 //引入body-parser中间件
 app.use(require('body-parser')());
@@ -8,6 +10,7 @@ app.set('port',process.env.PORT || 3006);
 app.use(express.static(__dirname + '/public'));
 //__dirname全局变量，当前问价运行的目录
 
+app.use(favicon(path.join(__dirname,'public','favicon.ico')));
 
 //路由1
 app.get('/',function(req,res){

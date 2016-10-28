@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js鼠标滚轮事件－全屏滚动</title>
+	<style type="text/css">
+		*{margin: 0; padding: 0;}
+		html,body{
+		    height:100%;
+		}
+		#wrap{
+		    overflow: hidden;
+		    width:100%;
+		}
+		#main{
+		    height:2944px;
+		    top:0;
+		    position: relative;
+
+		    -webkit-transition: all 1s;
+		                 transition: all 1s;
+
+		}
+		.page{
+		    width:100%;
+		    margin:0;
+		}
+		#page1{
+		    background:#1A98B5;
+		}
+		#page2{
+		    background:#55B87C;
+		}
+		#page3{
+		    background:#ACB540;
+		}
+		#page4{
+		    background:#B051AB;
+		}
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<div id="main">
+	      	<div id="page1" class="page"></div>
+	      	<div id="page2" class="page"></div>
+	      	<div id="page3" class="page"></div>
+	      	<div id="page4" class="page"></div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		var wrap = document.getElementById("wrap");
+		var main = document.getElementById("main");
+		var screenHeight = window.innerHeight || document.documentElement || document.body.clientHeight;
+		wrap.style.height = screenHeight + "px";
+		var obj = main.getElementsByTagName("div");
+		
+		for (var i = 0; i < obj.length; i ++) {
+	      	obj[i].style.height = screenHeight + "px";
+	      }
+
+		if ((navigator.userAgent.toLowerCase().indexOf("firefox") != -1)) {   
+	      	document.addEventListener("DOMMouseScroll",scrollFun,false);
+		} else if (document.addEventListener) {  
+	      	document.addEventListener("mousewheel",scrollFun,false);  
+		} else if (document.attachEvent) {  
+	      	document.attachEvent("onmousewheel",scrollFun);   
+		} else {  
+	      	document.onmousewheel = scrollFun;  
+		}
+
+		var startTime = 0, 
+	      	endTime = 0,
+	      	now = 0;
+
+		function scrollFun(event) {
+	      	startTime = new Date().getTime();  
+	      	var delta = event.detail || (-event.wheelDelta);
+
+	      	if ((endTime - startTime) < -1000) {
+	            	if (delta > 0 && parseInt(main.offsetTop) > -(screenHeight*3)) {
+	            		now = now - screenHeight;
+	            		toPage(now);
+	      		} 
+	            	if (delta<0 && parseInt(main.offsetTop) < 0) {
+	                  	now = now + screenHeight;
+	                  	toPage(now);
+	      		}
+	            	endTime = new Date().getTime();  
+	      	} else {  
+	            	event.preventDefault();    
+	            }    
+		}
+
+		function toPage(now) {
+	         setTimeout("main.style.top = now + 'px'",500);
+	    }   
+	</script>
+</body>
+</html>

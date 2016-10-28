@@ -1,0 +1,48 @@
+.box{
+    border: 1px solid #2ea4e3;
+    margin: 10px;
+    padding: 10px;
+}
+.color{
+    color: red;
+}
+/*根据条件设置/删除class属性*/
+
+#div-5 .redbox{
+    border: 1px solid red;
+    margin: 10px;
+    padding: 10px;
+}
+
+#div-5>p{
+    border: 1px solid blue;
+    margin: 10px;
+    padding: 10px;
+}
+
+/*获取/设置html元素*/
+
+#div-6 .redbox{
+    border: 1px solid blue;
+    margin: 10px;
+    padding: 10px;
+}
+
+#div-6>p{
+    border: 1px solid blue;
+    margin: 10px;
+    padding: 10px;
+}
+
+/*获取/设置文本text()*/
+#div-7 .redbox{
+    border: 1px solid blue;
+    margin: 10px;
+    padding: 10px;
+}
+
+#div-7>p{
+    border: 1px solid blue;
+    margin: 10px;
+    padding: 10px;
+}
