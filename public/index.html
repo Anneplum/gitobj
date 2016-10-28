@@ -3,8 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet"  href="stylesheets/style.css">
+
 </head>
 <body>
-    <p>这是文本</p>
+
+    <div >
+        <p id="content">0号：通灵　贾雨村风尘怀闺秀</p>
+        <div id="div-8">
+            <p id="one"
+               title="冷子兴演说荣国府" style="color: red">1号：兴演说荣国府</p>
+            <p id="two"
+               title="林黛玉抛父进京都">2号：第三回  贾雨村</p>
+            <p id="three"
+               title="葫芦僧乱判葫芦案">3号：第四回 判葫芦案</p>
+            <p id="pa">年后</p>
+            <input type="text" id="iput" value="鸟">
+            <input type="text" id="iput2" value="你好">
+        </div>
+    </div>
+
+    <button onclick="do_attr()">attr获取属性</button>
+    <button onclick="do_removeAttr()">移除属性属性</button>
+    <button onclick="do_addClass()">添加class属性</button>
+    <button onclick="do_removeClass()">移除class属性</button>
+    <button onclick="do_toggleClass()">toggleClass</button>
+    <button onclick="do_html()">设置html元素</button>
+    <button onclick="do_text()">获取/设置文本text()</button>
+    <button onclick="do_val()">获取/设置value的属性</button>
+
+    <script src="vendor/jquery/dist/jquery.min.js"></script>
+    <script src="javascripts/style.js"></script>
 </body>
 </html>
